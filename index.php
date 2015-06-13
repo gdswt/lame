@@ -5,6 +5,15 @@
  * @package  Lame
  * @author   congli huang <1064344315@qq.com>
  */
+/*
+|--------------------------------------------------------------------------
+| application 预定义文件
+|--------------------------------------------------------------------------
+|
+| application 预定义
+|
+*/
+require(__DIR__.'/application/config/define.php');
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +24,7 @@
 | 启动时默认的类
 |
 */
-require(__DIR__.'/application/config/application.php');
+require(APPLICATION.'/config/application.php');
 /*
 |--------------------------------------------------------------------------
 | application 类定义文件
@@ -24,7 +33,7 @@ require(__DIR__.'/application/config/application.php');
 | application 类定义
 |
 */
-require(__DIR__.'/system/core/application.php');
+require(SYS_CORE_PATH.'/lamb.php');
 /*
 |--------------------------------------------------------------------------
 | 框架启动时自动注册默认的类文件
@@ -33,16 +42,8 @@ require(__DIR__.'/system/core/application.php');
 | 框架启动时自动注册默认的类
 |
 */
-require(__DIR__.'/application/bootstrap/start.php');
-/*
-|--------------------------------------------------------------------------
-| application 初始化方法
-|--------------------------------------------------------------------------
-|
-| application 初始化
-|
-*/
-Application::init();
+require(APPLICATION.'/bootstrap/start.php');
+
 /*
 |--------------------------------------------------------------------------
 | application 运行方法

@@ -1,6 +1,7 @@
 <?php
 return array(
     'configFiles'=>array(
+    	'common'             =>      APPLICATION.'/config/common.php',
         'database'           =>      APPLICATION.'/config/database.php'
     ),
     'defaultClass'=>array(
