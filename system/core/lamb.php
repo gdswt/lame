@@ -12,9 +12,9 @@ final class Application{
     {
     	self::init();
     	$route = self::$_baseClass['route'];
-    	$route->setUrlType(config::get("common.route.type")); 
-    	$request =  $route->_request;
-        $response =  self::dispatcher($request);
+    	$route->init(config::get("common.route.type")); 
+    	$request =  $route->getRequest();
+        $response =  self::dispatcher($route);
         $response->send();
         self::terminate($request, $response);
     }
@@ -60,7 +60,7 @@ final class Application{
     	}
 
     }
-    public static function dispatcher(&$request)
+    public static function dispatcher(&$route)
     {
     	$appName = '';
     	$controller = '';
@@ -69,7 +69,7 @@ final class Application{
     	$params = '';
     	$response = null;
 
-        $appName      = !empty($route->getAppName) ? $route->getAppName : '';
+        $appName      = !empty($route->appName) ? $route->appName : '';
         $controller   = !empty($route->controller) ? $route->controller : config::get('common.route.defaultController'); 
         $action       = !empty($route->action) ? $route->action : config::get('common.route.defaultAction');
         $params       = !empty($route->params) ? $route->params : '';
